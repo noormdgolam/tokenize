@@ -161,7 +161,7 @@ self.addEventListener('fetch', event => {{
     print("Generated sw.js")
 
     # 7. Generate sitemap.xml
-    urls = ['/', '/search.html'] + [f"/{p['slug']}.html" for p in legal_pages] + [f"/{a['slug']}.html" for a in articles] + [f"/category-{c['slug']}.html" for c in site['categories']]
+    urls = ['/', '/index.html', '/search.html'] + [f"/{p['slug']}.html" for p in legal_pages] + [f"/{a['slug']}.html" for a in articles] + [f"/category-{c['slug']}.html" for c in site['categories']]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls:
         sitemap += f"  <url>\n    <loc>{site['url']}{u}</loc>\n    <changefreq>weekly</changefreq>\n  </url>\n"

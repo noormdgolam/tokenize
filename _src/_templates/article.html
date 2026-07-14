@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ article.title }} | {{ site.title }}{% endblock %}
+{% block title %}{{ article.title }} | {{ site.brand }}{% endblock %}
 {% block description %}{{ article.excerpt }}{% endblock %}
 
 {% block canonical %}{{ site.url }}/{{ article.slug }}.html{% endblock %}

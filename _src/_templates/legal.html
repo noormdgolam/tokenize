@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {{ site.title }}{% endblock %}
-{% block description %}{{ page.title }} for {{ site.brand }}{% endblock %}
+{% block title %}{{ page.title }} | {{ site.brand }}{% endblock %}
+{% block description %}Read the {{ page.title }} for {{ site.brand }}. This page outlines our policies and commitments to transparency.{% endblock %}
 {% block canonical %}{{ site.url }}/{{ page.slug }}.html{% endblock %}
 {% block canonical_alt %}{{ site.url }}/{{ page.slug }}.html{% endblock %}
 

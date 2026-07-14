@@ -5,6 +5,10 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://tokenize.example.com/index.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://tokenize.example.com/search.html</loc>
     <changefreq>weekly</changefreq>
   </url>
