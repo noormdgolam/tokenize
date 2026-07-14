@@ -95,6 +95,14 @@
   .navlinks{display:flex; gap:32px; font-size:0.95rem; color:var(--muted); align-items:center;}
   .navlinks a{text-decoration:none; font-weight:500;}
   .navlinks a:hover{color:var(--text);}
+  
+  /* Dropdown */
+  .dropdown { position:relative; display:inline-block; padding:16px 0; margin:-16px 0; }
+  .dropdown-content { display:none; position:absolute; top:100%; left:0; background:var(--surface); min-width:220px; box-shadow:0 10px 30px rgba(0,0,0,0.5); border:1px solid var(--line-soft); border-radius:var(--radius-sm); z-index:100; padding:8px 0; }
+  .dropdown:hover .dropdown-content { display:block; }
+  .dropdown-content a { display:block; padding:10px 20px; color:var(--text); text-decoration:none; transition:background 0.2s; font-size:0.9rem; }
+  .dropdown-content a:hover { background:var(--surface-2); color:var(--teal); }
+  
   @media (max-width:720px){ .navlinks{display:none;} }
 
   /* ---------- GLOBAL ORBS ---------- */
@@ -189,6 +197,34 @@
       Tokenize
     </a>
     <div class="navlinks">
+      
+      <div class="dropdown">
+        <a href="#" onclick="event.preventDefault()">Categories ▾</a>
+        <div class="dropdown-content">
+          
+          <a href="/category-alternative-assets.html">Alternative Assets</a>
+          
+          <a href="/category-defi.html">DeFi</a>
+          
+          <a href="/category-esg.html">ESG</a>
+          
+          <a href="/category-equities.html">Equities</a>
+          
+          <a href="/category-mortgages.html">Mortgages</a>
+          
+          <a href="/category-private-equity.html">Private Equity</a>
+          
+          <a href="/category-real-estate.html">Real Estate</a>
+          
+          <a href="/category-regulation.html">Regulation</a>
+          
+          <a href="/category-technology.html">Technology</a>
+          
+          <a href="/category-treasuries.html">Treasuries</a>
+          
+        </div>
+      </div>
+      
       
       <a href="/">Home</a>
       

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeFi Tokenization Articles | Tokenize | Real-World Asset Tokenization, Explained & Calculated</title>
+<meta name="description" content="Browse all articles related to the tokenization of DeFi. Learn how real-world assets in this sector are being brought on-chain.">
+
+<!-- SEO Meta Tags -->
+<link rel="canonical" href="https://tokenize.example.com/category-defi.html">
+<link rel="alternate" hreflang="en-us" href="https://tokenize.example.com/category-defi.html">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DeFi Tokenization | Tokenize | Real-World Asset Tokenization, Explained & Calculated">
+<meta property="og:description" content="Browse all articles related to the tokenization of DeFi. Learn how real-world assets in this sector are being brought on-chain.">
+<meta property="og:url" content="https://tokenize.example.com/category-defi.html">
+<meta property="og:image" content="https://tokenize.example.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeFi Tokenization | Tokenize | Real-World Asset Tokenization, Explained & Calculated">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#09090b">
+
+<!-- Google AdSense Global -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Modern Midnight/Zinc Palette */
+    --ink: #09090b;
+    --surface: #18181b;
+    --surface-2: #27272a;
+    --line: #3f3f46;
+    --line-soft: rgba(255,255,255,0.08);
+    
+    --teal: #00D9C0;
+    --teal-glow: rgba(0, 217, 192, 0.2);
+    --gold: #C9A227;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 99px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.02em;
+    line-height: 1.1;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; transition: all 0.2s ease;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px; position:relative; z-index:10;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:relative; z-index:50;
+    background:rgba(9, 9, 11, 0.7);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1100px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:1.4rem; font-weight:600;
+    display:flex; align-items:center; gap:10px; text-decoration: none;
+    letter-spacing:-0.03em;
+  }
+  .logo-icon {
+    width:32px; height:32px; border-radius:10px; background:linear-gradient(135deg, var(--teal), #00a896);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 4px 12px var(--teal-glow);
+  }
+  
+  .navlinks{display:flex; gap:32px; font-size:0.95rem; color:var(--muted); align-items:center;}
+  .navlinks a{text-decoration:none; font-weight:500;}
+  .navlinks a:hover{color:var(--text);}
+  
+  /* Dropdown */
+  .dropdown { position:relative; display:inline-block; padding:16px 0; margin:-16px 0; }
+  .dropdown-content { display:none; position:absolute; top:100%; left:0; background:var(--surface); min-width:220px; box-shadow:0 10px 30px rgba(0,0,0,0.5); border:1px solid var(--line-soft); border-radius:var(--radius-sm); z-index:100; padding:8px 0; }
+  .dropdown:hover .dropdown-content { display:block; }
+  .dropdown-content a { display:block; padding:10px 20px; color:var(--text); text-decoration:none; transition:background 0.2s; font-size:0.9rem; }
+  .dropdown-content a:hover { background:var(--surface-2); color:var(--teal); }
+  
+  @media (max-width:720px){ .navlinks{display:none;} }
+
+  /* ---------- GLOBAL ORBS ---------- */
+  .bg-orb {
+    position:absolute; border-radius:50%; filter:blur(120px); z-index:0; opacity:0.15; pointer-events:none;
+  }
+  .bg-orb.top-left { top:-100px; left:-100px; width:400px; height:400px; background:var(--teal); }
+  .bg-orb.top-right { top:200px; right:-150px; width:500px; height:500px; background:var(--gold); }
+
+  /* ---------- AD SLOTS ---------- */
+  .ad-slot{
+    max-width:1100px; margin:0 auto; padding:32px 24px; display:flex; justify-content:center; position:relative; z-index:10;
+  }
+  .ad-slot .box{
+    border:1px dashed var(--line); border-radius:var(--radius-md); padding:18px;
+    text-align:center; color:var(--muted); font-size:0.78rem; width:100%; max-width:728px; min-height: 90px;
+    font-family:'IBM Plex Mono', monospace; letter-spacing:0.04em;
+    display: flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.01);
+  }
+
+  /* Shared section styles */
+  section{padding:80px 0; position:relative; z-index:10;}
+  .section-head{max-width:60ch; margin-bottom:48px;}
+  .section-head .eyebrow{margin-bottom:16px; font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); display:inline-block; padding:4px 12px; border-radius:var(--radius-pill); background:var(--teal-glow);}
+  .section-head h2{font-size:clamp(2rem, 4vw, 2.8rem);}
+  .section-head p{color:var(--muted); margin-top:16px; font-size:1.05rem; line-height:1.7;}
+  
+  /* Footer & Legal */
+  footer{border-top:1px solid var(--line-soft); padding:64px 0; margin-top:40px; background:var(--surface); position:relative; z-index:10;}
+  .footgrid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px;}
+  .footgrid .muted{color:var(--muted); font-size:0.9rem; max-width:40ch; margin-bottom:16px; line-height:1.6;}
+  .footlinks{display:flex; gap:24px; font-size:0.9rem; color:var(--muted); flex-wrap:wrap;}
+  .footlinks a:hover{color:var(--teal);}
+  .visitor-counter { display:inline-block; border:1px solid var(--line); border-radius:var(--radius-sm); padding:6px 12px; font-size:0.8rem; font-family:'IBM Plex Mono', monospace; background:var(--ink); color:var(--teal); margin-top:16px; }
+
+  /* Cookie Consent Banner */
+  #cookie-banner { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); width:calc(100% - 48px); max-width:900px; background:rgba(24,24,27,0.9); backdrop-filter:blur(16px); border:1px solid var(--line-soft); padding:20px 24px; border-radius:var(--radius-md); display:flex; justify-content:space-between; align-items:center; z-index:9999; font-size:0.95rem; flex-wrap:wrap; gap:20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: opacity 0.4s ease, transform 0.4s ease; }
+  #cookie-banner.hidden { opacity:0; transform:translate(-50%, 20px); pointer-events:none; }
+  .cookie-btn { background:linear-gradient(135deg, var(--teal), #00a896); color:var(--ink); border:none; padding:10px 24px; border-radius:var(--radius-pill); font-weight:600; cursor:pointer; font-family:'Inter', sans-serif; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px var(--teal-glow); }
+  .cookie-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--teal-glow); }
+
+  /* Inputs and Buttons */
+  .btn-primary { background:linear-gradient(135deg, var(--teal), #00a896); color:var(--ink); border:none; padding:12px 28px; border-radius:var(--radius-pill); font-weight:600; cursor:pointer; font-family:'Inter', sans-serif; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px var(--teal-glow); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--teal-glow); }
+  
+  
+  .cat-hero{padding:80px 0 40px; border-bottom:1px solid var(--line-soft); text-align:center; background:rgba(24,24,27,0.3);}
+  .cat-hero h1{
+    font-size:clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom:16px;
+    color:var(--text);
+  }
+  .cat-hero p.lede{
+    font-size:1.15rem; color:var(--muted); max-width:60ch; margin:0 auto;
+  }
+  .cat-hero .eyebrow {
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--teal); display:inline-block; margin-bottom:16px;
+  }
+
+  /* ---------- ARTICLE GRID ---------- */
+  .articles{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; padding:60px 0;}
+  @media (max-width:900px){ .articles{grid-template-columns:1fr;} }
+
+  .article{
+    border:1px solid var(--line-soft); border-radius:var(--radius-md); padding:32px; background:var(--surface);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
+    display:block; text-decoration:none; color:inherit; position:relative; overflow:hidden;
+  }
+  .article:hover{
+    border-color:var(--teal);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3), 0 0 20px var(--teal-glow);
+  }
+  .article::before {
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, var(--teal), #00a896); opacity:0; transition:opacity 0.3s;
+  }
+  .article:hover::before { opacity:1; }
+  
+  .article .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--gold); display:inline-block; margin-bottom:12px;
+  }
+  .article h3{font-size:1.2rem; margin:12px 0 10px; font-weight:500; color:var(--text); line-height:1.4;}
+  .article p{color:var(--muted); font-size:0.95rem; line-height:1.6;}
+
+</style>
+
+<!-- JSON-LD Organization & WebSite schemas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Tokenize",
+  "url": "https://tokenize.example.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tokenize",
+  "url": "https://tokenize.example.com",
+  "logo": "https://tokenize.example.com/logo.png"
+}
+</script>
+</head>
+<body>
+
+<div class="bg-orb top-left"></div>
+<div class="bg-orb top-right"></div>
+
+<header>
+  <nav>
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      Tokenize
+    </a>
+    <div class="navlinks">
+      
+      <div class="dropdown">
+        <a href="#" onclick="event.preventDefault()">Categories ▾</a>
+        <div class="dropdown-content">
+          
+          <a href="/category-alternative-assets.html">Alternative Assets</a>
+          
+          <a href="/category-defi.html">DeFi</a>
+          
+          <a href="/category-esg.html">ESG</a>
+          
+          <a href="/category-equities.html">Equities</a>
+          
+          <a href="/category-mortgages.html">Mortgages</a>
+          
+          <a href="/category-private-equity.html">Private Equity</a>
+          
+          <a href="/category-real-estate.html">Real Estate</a>
+          
+          <a href="/category-regulation.html">Regulation</a>
+          
+          <a href="/category-technology.html">Technology</a>
+          
+          <a href="/category-treasuries.html">Treasuries</a>
+          
+        </div>
+      </div>
+      
+      
+      <a href="/">Home</a>
+      
+      <a href="/search.html">Search</a>
+      
+      <a href="/native-vs-synthetic-tokenized-stock.html">Equities</a>
+      
+      <a href="/inside-a-tokenized-treasury-fund.html">Treasuries</a>
+      
+      <a href="/about-us.html">About Us</a>
+      
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="cat-hero">
+  <div class="wrap">
+    <span class="eyebrow">Category Archive</span>
+    <h1>DeFi</h1>
+    <p class="lede">Explore our deep dives into how DeFi assets are being tokenized on the blockchain.</p>
+  </div>
+</section>
+
+<!-- AdSense Slot -->
+<div class="ad-slot" style="margin-top:40px;"><div class="box">AD SLOT — ABOVE THE FOLD (728×90)</div></div>
+
+<section id="articles">
+  <div class="wrap">
+    <div class="articles">
+      
+      <a href="/defi-composability-with-tokenized-assets.html" class="article">
+        <span class="tag">DeFi</span>
+        <h3>DeFi Composability: Using Tokenized Assets as Collateral</h3>
+        <p>Explain how tokenized real-world assets (RWAs) like real estate and treasuries act as collateral in decentralized lending protocols like Aave and MakerDAO.</p>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="wrap footgrid">
+    <div>
+      <div class="logo" style="margin-bottom:16px;">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        Tokenize
+      </div>
+      <p class="muted">Independent explainers and calculators on real-world asset tokenization. Educational content only — not investment, legal, or tax advice.</p>
+      <div class="visitor-counter">Total Visitors: <span id="fakeCounter">Loading...</span></div>
+    </div>
+    <div>
+      <div class="footlinks">
+        <a href="/sitemap.html" style="color:var(--teal); font-weight:500;">HTML Sitemap</a>
+        
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        
+        <a href="/terms-of-service.html">Terms of Service</a>
+        
+        <a href="/disclaimer.html">Disclaimer</a>
+        
+        <a href="/contact.html">Contact</a>
+        
+      </div>
+      <div style="margin-top:32px; background:var(--surface-2); padding:24px; border-radius:var(--radius-md); border:1px solid var(--line-soft);">
+        <p style="font-weight:500; margin-bottom:12px;">Subscribe to our Newsletter</p>
+        <form style="display:flex; gap:12px;" onsubmit="event.preventDefault(); alert('Newsletter subscribed!');">
+          <input type="email" placeholder="Your email" required style="flex:1; padding:12px 16px; border-radius:var(--radius-pill); border:1px solid var(--line); background:var(--ink); color:var(--text); font-family:'Inter', sans-serif;">
+          <button type="submit" class="btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="hidden">
+  <div>We use cookies and Google AdSense to personalize content and ads, provide social media features, and analyze our traffic. See our <a href="/privacy-policy.html" style="color:var(--teal); font-weight:500; text-decoration:none;">Privacy Policy</a>.</div>
+  <button class="cookie-btn" onclick="acceptCookies()">Accept All</button>
+</div>
+
+<script>
+  // Cookie banner logic
+  setTimeout(() => {
+    if(!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+  }, 1000);
+
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+
+  // Fake counter for demo purposes
+  document.getElementById('fakeCounter').innerText = Math.floor(Math.random() * 5000 + 10000).toLocaleString();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+
+</body>
+</html>

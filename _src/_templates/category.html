@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category_name }} Tokenization Articles | {{ site.title }}{% endblock %}
+{% block description %}Browse all articles related to the tokenization of {{ category_name }}. Learn how real-world assets in this sector are being brought on-chain.{% endblock %}
+
+{% block canonical %}{{ site.url }}/category-{{ category_slug }}.html{% endblock %}
+{% block canonical_alt %}{{ site.url }}/category-{{ category_slug }}.html{% endblock %}
+{% block og_title %}{{ category_name }} Tokenization | {{ site.title }}{% endblock %}
+{% block og_description %}Browse all articles related to the tokenization of {{ category_name }}. Learn how real-world assets in this sector are being brought on-chain.{% endblock %}
+{% block og_url %}{{ site.url }}/category-{{ category_slug }}.html{% endblock %}
+{% block tw_title %}{{ category_name }} Tokenization | {{ site.title }}{% endblock %}
+
+{% block extra_css %}
+  .cat-hero{padding:80px 0 40px; border-bottom:1px solid var(--line-soft); text-align:center; background:rgba(24,24,27,0.3);}
+  .cat-hero h1{
+    font-size:clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom:16px;
+    color:var(--text);
+  }
+  .cat-hero p.lede{
+    font-size:1.15rem; color:var(--muted); max-width:60ch; margin:0 auto;
+  }
+  .cat-hero .eyebrow {
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--teal); display:inline-block; margin-bottom:16px;
+  }
+
+  /* ---------- ARTICLE GRID ---------- */
+  .articles{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; padding:60px 0;}
+  @media (max-width:900px){ .articles{grid-template-columns:1fr;} }
+
+  .article{
+    border:1px solid var(--line-soft); border-radius:var(--radius-md); padding:32px; background:var(--surface);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
+    display:block; text-decoration:none; color:inherit; position:relative; overflow:hidden;
+  }
+  .article:hover{
+    border-color:var(--teal);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3), 0 0 20px var(--teal-glow);
+  }
+  .article::before {
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, var(--teal), #00a896); opacity:0; transition:opacity 0.3s;
+  }
+  .article:hover::before { opacity:1; }
+  
+  .article .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--gold); display:inline-block; margin-bottom:12px;
+  }
+  .article h3{font-size:1.2rem; margin:12px 0 10px; font-weight:500; color:var(--text); line-height:1.4;}
+  .article p{color:var(--muted); font-size:0.95rem; line-height:1.6;}
+{% endblock %}
+
+{% block content %}
+<section class="cat-hero">
+  <div class="wrap">
+    <span class="eyebrow">Category Archive</span>
+    <h1>{{ category_name }}</h1>
+    <p class="lede">Explore our deep dives into how {{ category_name }} assets are being tokenized on the blockchain.</p>
+  </div>
+</section>
+
+<!-- AdSense Slot -->
+<div class="ad-slot" style="margin-top:40px;"><div class="box">AD SLOT — ABOVE THE FOLD (728×90)</div></div>
+
+<section id="articles">
+  <div class="wrap">
+    <div class="articles">
+      {% for article in articles %}
+      <a href="/{{ article.slug }}.html" class="article">
+        <span class="tag">{{ article.category }}</span>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

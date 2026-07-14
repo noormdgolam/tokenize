@@ -46,6 +46,13 @@ def main():
     # Process content to include ads and newsletter
     for article in articles:
         article['content_with_ads'] = inject_mid_article_content(article.get('content', ''))
+        
+    # Generate categories
+    unique_categories = set(a.get('category', 'Uncategorized') for a in articles)
+    site['categories'] = sorted([
+        {"name": c, "slug": c.lower().replace(' ', '-')}
+        for c in unique_categories
+    ], key=lambda x: x['name'])
     
     # Setup Jinja
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
@@ -75,6 +82,14 @@ def main():
     for article in articles:
         related = [a for a in articles if a['slug'] != article['slug']][:3]
         render_and_save('article.html', f"{article['slug']}.html", article=article, related=related)
+        
+    # 4.5 Generate category pages
+    for cat in site['categories']:
+        cat_articles = [a for a in articles if a.get('category', 'Uncategorized') == cat['name']]
+        render_and_save('category.html', f"category-{cat['slug']}.html", 
+                        articles=cat_articles, 
+                        category_name=cat['name'],
+                        category_slug=cat['slug'])
         
     # 5. Generate search_index.json
     search_index = [
@@ -146,7 +161,7 @@ self.addEventListener('fetch', event => {{
     print("Generated sw.js")
 
     # 7. Generate sitemap.xml
-    urls = ['/', '/search.html'] + [f"/{p['slug']}.html" for p in legal_pages] + [f"/{a['slug']}.html" for a in articles]
+    urls = ['/', '/search.html'] + [f"/{p['slug']}.html" for p in legal_pages] + [f"/{a['slug']}.html" for a in articles] + [f"/category-{c['slug']}.html" for c in site['categories']]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls:
         sitemap += f"  <url>\n    <loc>{site['url']}{u}</loc>\n    <changefreq>weekly</changefreq>\n  </url>\n"

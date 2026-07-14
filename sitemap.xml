@@ -440,4 +440,44 @@
     <loc>https://tokenize.example.com/tokenized-terraforming-projects.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://tokenize.example.com/category-alternative-assets.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-defi.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-esg.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-equities.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-mortgages.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-private-equity.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-real-estate.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-regulation.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-technology.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://tokenize.example.com/category-treasuries.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
