@@ -102,8 +102,18 @@
   .dropdown:hover .dropdown-content { display:block; }
   .dropdown-content a { display:block; padding:10px 20px; color:var(--text); text-decoration:none; transition:background 0.2s; font-size:0.9rem; }
   .dropdown-content a:hover { background:var(--surface-2); color:var(--teal); }
+
+  /* Mobile Menu */
+  .hamburger { display:none; background:none; border:none; cursor:pointer; padding:8px; color:var(--text); }
+  .hamburger svg { width:24px; height:24px; }
+  .mobile-menu { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(9,9,11,0.97); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:24px; }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { font-size:1.2rem; color:var(--text); text-decoration:none; padding:12px 32px; border-radius:var(--radius-sm); transition:background 0.2s, color 0.2s; }
+  .mobile-menu a:hover { background:var(--surface-2); color:var(--teal); }
+  .mobile-menu .cat-label { font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-top:16px; }
+  .mobile-close { position:absolute; top:20px; right:24px; background:none; border:none; color:var(--text); cursor:pointer; font-size:1.8rem; }
   
-  @media (max-width:720px){ .navlinks{display:none;} }
+  @media (max-width:720px){ .navlinks{display:none;} .hamburger{display:block;} }
 
   /* ---------- GLOBAL ORBS ---------- */
   .bg-orb {
@@ -268,8 +278,50 @@
       <a href="/about-us.html">About Us</a>
       
     </div>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </nav>
 </header>
+
+<div id="mobileMenu" class="mobile-menu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">&times;</button>
+  
+  <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  
+  <a href="/search.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Search</a>
+  
+  <a href="/native-vs-synthetic-tokenized-stock.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Equities</a>
+  
+  <a href="/inside-a-tokenized-treasury-fund.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Treasuries</a>
+  
+  <a href="/about-us.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">About Us</a>
+  
+  
+  <span class="cat-label">Categories</span>
+  
+  <a href="/category-alternative-assets.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Alternative Assets</a>
+  
+  <a href="/category-defi.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">DeFi</a>
+  
+  <a href="/category-esg.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">ESG</a>
+  
+  <a href="/category-equities.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Equities</a>
+  
+  <a href="/category-mortgages.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Mortgages</a>
+  
+  <a href="/category-private-equity.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Private Equity</a>
+  
+  <a href="/category-real-estate.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Real Estate</a>
+  
+  <a href="/category-regulation.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Regulation</a>
+  
+  <a href="/category-technology.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Technology</a>
+  
+  <a href="/category-treasuries.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Treasuries</a>
+  
+  
+</div>
 
 <main>
 
