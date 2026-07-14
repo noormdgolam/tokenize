@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "about-us",
+    "title": "About Us",
+    "content": "<h2>Our Mission</h2><p>Tokenize is dedicated to demystifying the complex world of real-world asset (RWA) tokenization. Our mission is to provide clear, actionable, and mathematically grounded insights into how blockchain technology is transforming traditional financial instruments like equities, treasuries, and real estate.</p><h2>Editorial Standards</h2><p>Our editorial team consists of finance and technology professionals. Every article undergoes a rigorous fact-checking process to ensure it meets our standards for accuracy, neutrality, and educational value. We link out to authoritative sources to back up our claims.</p>"
+  },
+  {
+    "slug": "contact",
+    "title": "Contact",
+    "content": "<h2>Get in Touch</h2><p>Have a question about our calculators, or want to suggest a topic? We'd love to hear from you.</p><p>Email: contact@tokenize.example.com</p><p>We aim to respond to all inquiries within 48 hours.</p>"
+  },
+  {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy",
+    "content": "<h2>Introduction</h2><p>At Tokenize, we respect your privacy and are committed to protecting it. This policy describes how we collect, use, and protect your data.</p><h2>Google AdSense and Cookies</h2><p>We use Google AdSense to serve ads. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet.</p><p>You may opt out of personalized advertising by visiting <a href=\"https://www.google.com/settings/ads\" target=\"_blank\" rel=\"noopener noreferrer\">Ads Settings</a>.</p>"
+  },
+  {
+    "slug": "terms-of-service",
+    "title": "Terms of Service",
+    "content": "<h2>Acceptance of Terms</h2><p>By accessing Tokenize, you agree to these Terms of Service. If you disagree, please do not use our site.</p><h2>Use of Content</h2><p>All content is provided for educational purposes only. You may not reproduce our content without permission.</p>"
+  },
+  {
+    "slug": "disclaimer",
+    "title": "Financial Disclaimer",
+    "content": "<h2>Educational Purposes Only</h2><p>The calculators, articles, and data on Tokenize are for educational and informational purposes only. They do not constitute financial, investment, legal, or tax advice.</p><h2>No Guarantees</h2><p>We make no guarantees regarding the accuracy of our calculators. Tokenized assets carry significant risks, including regulatory uncertainty and smart contract vulnerabilities. Always consult a certified financial advisor before making investment decisions.</p>"
+  }
+]

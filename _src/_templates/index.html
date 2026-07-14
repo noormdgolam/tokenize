@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+  /* ---------- HERO / SIGNATURE: SETTLEMENT RACE ---------- */
+  .hero{padding:100px 0 60px; border-bottom:1px solid var(--line-soft);}
+  .hero-content { display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .hero h1{
+    font-size:clamp(2.8rem, 6vw, 4.2rem);
+    max-width:18ch;
+    margin-bottom:24px;
+    background: linear-gradient(to right, var(--text), #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h1 em{
+    font-style:normal; 
+    background: linear-gradient(135deg, var(--teal), #00a896);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lede{
+    font-size:1.2rem; color:var(--muted); max-width:60ch; margin-bottom:48px;
+  }
+
+  .race{
+    border:1px solid var(--line-soft); border-radius:var(--radius-lg); background:rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(8px);
+    padding:32px; width:100%; max-width:800px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+  .race-label{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:20px;
+  }
+  .race-label span:first-child{font-size:0.9rem; color:var(--muted);}
+  .race-title{font-family:'Fraunces', serif; font-size:1.1rem; color:var(--text);}
+  .track{
+    position:relative; height:36px; background:var(--surface-2);
+    border-radius:var(--radius-sm); overflow:hidden; margin-bottom:16px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .track .fill{
+    position:absolute; top:0; left:0; height:100%; border-radius:var(--radius-sm);
+  }
+  .track.chain .fill{background:linear-gradient(90deg, var(--teal), #5EEAD4); animation:fillChain 1.8s ease-out forwards; box-shadow: 0 0 12px var(--teal-glow);}
+  .track.ledger .fill{background:linear-gradient(90deg, var(--gold), #E4C868); animation:fillLedger 1.8s ease-out forwards;}
+  .track .caption{
+    position:absolute; left:16px; top:0; height:100%; display:flex; align-items:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink); font-weight:600;
+    z-index:2;
+  }
+  @keyframes fillChain{ from{width:0%;} to{width:98%;} }
+  @keyframes fillLedger{ from{width:0%;} to{width:14%;} }
+  .race-foot{display:flex; justify-content:space-between; font-size:0.85rem; color:var(--muted); margin-top:20px;}
+  .race-foot b{color:var(--text); font-weight:600;}
+
+  /* ---------- CALCULATOR ---------- */
+  .calc-section{background:rgba(24,24,27,0.3); border-bottom:1px solid var(--line-soft);}
+  .calc-card{
+    border:1px solid var(--line-soft); border-radius:var(--radius-lg); background:var(--surface);
+    padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  @media (max-width:720px){ .calc-card{grid-template-columns:1fr; padding:24px;} }
+  .calc-card h3{font-size:1.4rem; margin-bottom:8px;}
+  .calc-card .sub{color:var(--muted); font-size:0.95rem; margin-bottom:32px;}
+  .field{margin-bottom:24px;}
+  .field label{
+    display:block; font-size:0.85rem; color:var(--muted); margin-bottom:10px; font-weight:500;
+  }
+  .field .inputwrap{position:relative;}
+  .field input[type=number]{
+    width:100%; background:var(--ink); border:1px solid var(--line);
+    border-radius:var(--radius-sm); padding:14px 16px; color:var(--text);
+    font-family:'IBM Plex Mono', monospace; font-size:1rem; transition:border-color 0.2s;
+  }
+  .field input[type=number]:focus{outline:none; border-color:var(--teal); box-shadow: 0 0 0 2px var(--teal-glow);}
+  .field input[type=range]{width:100%; accent-color:var(--teal);}
+  .rangeval{font-family:'IBM Plex Mono', monospace; color:var(--teal); font-size:0.9rem;}
+
+  .results{
+    background:var(--surface-2); border-radius:var(--radius-md); padding:32px; border:1px solid var(--line-soft);
+  }
+  .results .big{
+    font-family:'IBM Plex Mono', monospace; font-size:2.4rem; color:var(--teal); font-weight:600;
+    margin-bottom:4px;
+    text-shadow: 0 0 20px var(--teal-glow);
+  }
+  .results .biglabel{font-size:0.85rem; color:var(--muted); margin-bottom:28px;}
+  .results .row{
+    display:flex; justify-content:space-between; padding:12px 0; border-top:1px solid var(--line-soft);
+    font-size:0.9rem;
+  }
+  .results .row:first-of-type{border-top:none;}
+  .results .row b{font-family:'IBM Plex Mono', monospace; color:var(--text); font-weight:500;}
+  .disclaimer{font-size:0.8rem; color:var(--muted); margin-top:24px; line-height:1.6;}
+
+  /* ---------- ARTICLE GRID ---------- */
+  .articles{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+  @media (max-width:900px){ .articles{grid-template-columns:1fr;} }
+  .article{
+    border:1px solid var(--line-soft); border-radius:var(--radius-md); padding:32px; background:var(--surface);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
+    display:block; text-decoration:none; color:inherit; position:relative; overflow:hidden;
+  }
+  .article:hover{
+    border-color:var(--teal);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3), 0 0 20px var(--teal-glow);
+  }
+  .article::before {
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, var(--teal), #00a896); opacity:0; transition:opacity 0.3s;
+  }
+  .article:hover::before { opacity:1; }
+  
+  .article .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--gold); display:inline-block; margin-bottom:12px;
+  }
+  .article h3{font-size:1.2rem; margin:12px 0 10px; font-weight:500; color:var(--text); line-height:1.4;}
+  .article p{color:var(--muted); font-size:0.95rem; line-height:1.6;}
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-content">
+    <span class="eyebrow">Settlement, timed</span>
+    <h1>The trade clears while <em>you're</em> still waiting on T+1.</h1>
+    <p class="lede">Tokenized securities settle in seconds, not days. See exactly what that's worth to you, then read how native on-chain equity actually differs from the synthetic tokens most exchanges sell.</p>
+
+    <div class="race" role="img" aria-label="Comparison showing on-chain settlement finishing in under a second versus traditional T+1 settlement taking roughly one full trading day">
+      <div class="race-label">
+        <span>Same trade. Two rails.</span>
+        <span class="race-title mono">SETTLEMENT RACE</span>
+      </div>
+
+      <div class="track chain">
+        <div class="fill"></div>
+        <div class="caption">On-chain — instant</div>
+      </div>
+      <div class="track ledger">
+        <div class="fill"></div>
+        <div class="caption">Traditional broker — T+1</div>
+      </div>
+
+      <div class="race-foot">
+        <span>On-chain: <b>&lt; 1 second</b> to final settlement</span>
+        <span>Traditional: <b>~24 hours</b> to final settlement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Above the fold AdSense Slot -->
+<div class="ad-slot"><div class="box">AD SLOT — ABOVE THE FOLD (728×90)</div></div>
+
+<section class="calc-section" id="calculator">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Calculator</span>
+      <h2>What instant settlement is worth to your capital</h2>
+      <p>Every day your money sits waiting for a trade to settle, it isn't working. This estimates the capital efficiency gained by moving from standard T+1 settlement to instant on-chain settlement.</p>
+    </div>
+
+    <div class="calc-card">
+      <div>
+        <h3>Instant Settlement Savings</h3>
+        <p class="sub">Estimate the annualized value of freeing up capital currently locked in T+1 settlement.</p>
+
+        <div class="field">
+          <label for="tradeSize">Average trade size (USD)</label>
+          <div class="inputwrap">
+            <input type="number" id="tradeSize" value="25000" min="0" step="1000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tradesPerMonth">Trades per month</label>
+          <div class="inputwrap">
+            <input type="number" id="tradesPerMonth" value="12" min="0" step="1">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="yieldRate">Annual yield on idle cash: <span class="rangeval" id="yieldVal">4.5%</span></label>
+          <input type="range" id="yieldRate" min="0" max="10" step="0.1" value="4.5">
+        </div>
+
+        <div class="field">
+          <label for="settleDays">Days tied up under traditional settlement: <span class="rangeval" id="settleVal">1.0</span></label>
+          <input type="range" id="settleDays" min="0.5" max="3" step="0.5" value="1">
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="big" id="outAnnual">$146</div>
+        <div class="biglabel">estimated annual capital-efficiency gain</div>
+
+        <div class="row"><span>Capital in transit per trade</span><b id="outPerTrade">$25,000</b></div>
+        <div class="row"><span>Days idle per year (traditional)</span><b id="outDaysIdle">12.0</b></div>
+        <div class="row"><span>On-chain days idle</span><b id="outDaysChain">~0</b></div>
+        <div class="row"><span>Trades per year</span><b id="outTradesYear">144</b></div>
+
+        <p class="disclaimer">Educational estimate only, not investment advice. Assumes idle cash could otherwise earn the entered yield and that on-chain settlement finality is near-instant. Actual figures depend on your broker, custody terms, and market conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- In-Content AdSense Slot -->
+<div class="ad-slot"><div class="box">AD SLOT — IN-CONTENT (728×90)</div></div>
+
+<section id="reads">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Start here</span>
+      <h2>Guides on how tokenization actually works</h2>
+      <p>No hype, no price predictions. Just how the rails work and who's building them.</p>
+    </div>
+
+    <div class="articles">
+      {% for article in articles %}
+      <a href="{{ article.slug }}.html" class="article">
+        <span class="tag">{{ article.category }}</span>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  const tradeSize = document.getElementById('tradeSize');
+  const tradesPerMonth = document.getElementById('tradesPerMonth');
+  const yieldRate = document.getElementById('yieldRate');
+  const settleDays = document.getElementById('settleDays');
+  const yieldVal = document.getElementById('yieldVal');
+  const settleVal = document.getElementById('settleVal');
+
+  const outAnnual = document.getElementById('outAnnual');
+  const outPerTrade = document.getElementById('outPerTrade');
+  const outDaysIdle = document.getElementById('outDaysIdle');
+  const outDaysChain = document.getElementById('outDaysChain');
+  const outTradesYear = document.getElementById('outTradesYear');
+
+  function fmtUSD(n){
+    return '$' + n.toLocaleString('en-US', {maximumFractionDigits: 0});
+  }
+
+  function calc(){
+    const size = parseFloat(tradeSize.value) || 0;
+    const monthly = parseFloat(tradesPerMonth.value) || 0;
+    const y = parseFloat(yieldRate.value) / 100;
+    const days = parseFloat(settleDays.value);
+
+    yieldVal.textContent = y.toLocaleString('en-US', {style:'percent', minimumFractionDigits:1});
+    settleVal.textContent = days.toFixed(1);
+
+    const tradesYear = monthly * 12;
+    const daysIdlePerYear = tradesYear * days;
+    const dailyYield = y / 365;
+    const annualGain = size * dailyYield * daysIdlePerYear;
+
+    outAnnual.textContent = fmtUSD(annualGain);
+    outPerTrade.textContent = fmtUSD(size);
+    outDaysIdle.textContent = daysIdlePerYear.toFixed(1);
+    outDaysChain.textContent = '~0';
+    outTradesYear.textContent = tradesYear.toLocaleString('en-US');
+  }
+
+  if (tradeSize) {
+    [tradeSize, tradesPerMonth, yieldRate, settleDays].forEach(el => {
+      el.addEventListener('input', calc);
+    });
+    calc();
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{
+  "brand": "Tokenize",
+  "title": "Tokenize | Real-World Asset Tokenization, Explained & Calculated",
+  "description": "Understand tokenized stocks, treasuries, and real estate. Free calculators for settlement savings, RWA yield, and portfolio allocation — built for US investors.",
+  "url": "https://tokenize.example.com",
+  "adsense_pub_id": "ca-pub-0000000000000000",
+  "author": "Tokenize Editorial Team",
+  "author_bio": "Experts on real-world asset tokenization and decentralized finance structures, bringing clarity to digital asset markets.",
+  "lang": "en-US",
+  "hreflang": "en-us",
+  "theme": {
+    "teal": "#00D9C0",
+    "gold": "#C9A227",
+    "ink": "#0B1220"
+  },
+  "nav_links": [
+    {"title": "Home", "url": "/"},
+    {"title": "Search", "url": "/search.html"},
+    {"title": "Equities", "url": "/native-vs-synthetic-tokenized-stock.html"},
+    {"title": "Treasuries", "url": "/inside-a-tokenized-treasury-fund.html"},
+    {"title": "About Us", "url": "/about-us.html"}
+  ],
+  "footer_links": [
+    {"title": "Privacy Policy", "url": "/privacy-policy.html"},
+    {"title": "Terms of Service", "url": "/terms-of-service.html"},
+    {"title": "Disclaimer", "url": "/disclaimer.html"},
+    {"title": "Contact", "url": "/contact.html"}
+  ],
+  "footer_text": "Independent explainers and calculators on real-world asset tokenization. Educational content only — not investment, legal, or tax advice."
+}

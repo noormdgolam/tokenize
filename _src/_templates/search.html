@@ -1,0 +1,93 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Search | {{ site.title }}{% endblock %}
+{% block description %}Search across our guides on real-world asset tokenization.{% endblock %}
+
+{% block extra_css %}
+  .search-container { max-width: 800px; margin: 60px auto; padding: 0 24px; min-height: 50vh; }
+  .search-box { width: 100%; padding: 16px 20px; font-size: 1.1rem; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); margin-bottom: 40px; font-family: 'Inter', sans-serif; }
+  .search-box:focus { outline: 2px solid var(--teal); }
+  
+  .results-list { list-style: none; }
+  .result-item { padding: 24px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 20px; background: var(--surface-2); display: block; text-decoration: none; color: inherit; transition: border-color 0.15s; }
+  .result-item:hover { border-color: var(--teal); }
+  .result-item h3 { font-size: 1.2rem; color: var(--text); margin-bottom: 8px; }
+  .result-item p { color: var(--muted); font-size: 0.95rem; }
+  .no-results { color: var(--muted); text-align: center; padding: 40px; }
+{% endblock %}
+
+{% block content %}
+<div class="search-container">
+  <div class="section-head">
+    <h2>Search</h2>
+  </div>
+  
+  <input type="text" id="searchInput" class="search-box" placeholder="Search guides, topics..." autofocus>
+  
+  <div id="searchResults" class="results-list">
+    <!-- Results populated by JS -->
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  let searchIndex = [];
+
+  // Fetch the search index
+  fetch('/search_index.json')
+    .then(res => res.json())
+    .then(data => {
+      searchIndex = data;
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+      if (query) {
+        document.getElementById('searchInput').value = query;
+        performSearch(query);
+      }
+    });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    performSearch(e.target.value);
+    
+    // Update URL without reload
+    const url = new URL(window.location);
+    if(e.target.value) {
+      url.searchParams.set('q', e.target.value);
+    } else {
+      url.searchParams.delete('q');
+    }
+    window.history.replaceState({}, '', url);
+  });
+
+  function performSearch(query) {
+    const resultsContainer = document.getElementById('searchResults');
+    resultsContainer.innerHTML = '';
+    
+    if (!query.trim()) return;
+    
+    const q = query.toLowerCase();
+    const results = searchIndex.filter(item => 
+      item.title.toLowerCase().includes(q) || 
+      item.excerpt.toLowerCase().includes(q)
+    );
+    
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results">No results found for "'+query+'"</div>';
+      return;
+    }
+    
+    results.forEach(item => {
+      const el = document.createElement('a');
+      el.href = item.slug + '.html';
+      el.className = 'result-item';
+      el.innerHTML = `
+        <h3>${item.title}</h3>
+        <p>${item.excerpt}</p>
+      `;
+      resultsContainer.appendChild(el);
+    });
+  }
+</script>
+{% endblock %}
+

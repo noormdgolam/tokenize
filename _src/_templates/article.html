@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | {{ site.title }}{% endblock %}
+{% block description %}{{ article.excerpt }}{% endblock %}
+
+{% block canonical %}{{ site.url }}/{{ article.slug }}.html{% endblock %}
+{% block canonical_alt %}{{ site.url }}/{{ article.slug }}.html{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_description %}{{ article.excerpt }}{% endblock %}
+{% block og_url %}{{ site.url }}/{{ article.slug }}.html{% endblock %}
+{% block tw_title %}{{ article.title }}{% endblock %}
+
+{% block extra_css %}
+  .article-layout { display:grid; grid-template-columns:1fr 300px; gap:40px; max-width:1100px; margin:0 auto; padding:0 24px; position:relative; }
+  @media (max-width:900px){ .article-layout { grid-template-columns:1fr; } }
+  
+  .article-header { padding: 60px 0 30px; text-align: left; border-bottom:1px solid var(--line); margin-bottom:40px; }
+  .article-header .tag { font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin-bottom:16px; display:inline-block; }
+  .article-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+  .article-header .meta { color: var(--muted); font-size: 0.9rem; }
+  
+  .key-takeaways { background:rgba(24,24,27,0.4); border-left:4px solid var(--teal); padding:32px; border-radius:0 var(--radius-md) var(--radius-md) 0; margin-bottom:48px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .key-takeaways h3 { font-size:1.15rem; margin-bottom:16px; color:var(--teal); font-family:'Inter', sans-serif; }
+  .key-takeaways ul { margin-left:24px; color:var(--text); line-height:1.7; }
+  .key-takeaways li { margin-bottom:10px; }
+  
+  .toc { background:var(--surface); border:1px solid var(--line-soft); padding:32px; border-radius:var(--radius-md); margin-bottom:48px; }
+  .toc h3 { font-size:1.15rem; margin-bottom:16px; font-family:'Inter', sans-serif; }
+  .toc ul { list-style:none; }
+  .toc li { margin-bottom:10px; }
+  .toc a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+  .toc a:hover { color:var(--teal); }
+  
+  .article-content { font-size: 1.1rem; line-height: 1.7; }
+  .article-content h2 { font-size: 1.8rem; margin: 40px 0 20px; color: var(--text); }
+  .article-content h3 { font-size: 1.4rem; margin: 30px 0 16px; color: #E8ECF4; }
+  .article-content p { margin-bottom: 24px; color: #D1D5DB; }
+  .article-content strong { color: var(--text); font-weight: 600; }
+  
+  /* Social Share (Inline Mobile, Floating Desktop if desired, but we keep inline for simplicity) */
+  .social-share { display:flex; gap:12px; margin:24px 0 40px; }
+  .share-btn { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--surface); border:1px solid var(--line); color:var(--text); text-decoration:none; transition:all 0.2s; }
+  .share-btn:hover { background:var(--teal); color:var(--ink); border-color:var(--teal); }
+  
+  .faq-section { margin-top:60px; padding-top:40px; border-top:1px solid var(--line); }
+  .faq-section h2 { font-size:1.8rem; margin-bottom:24px; }
+  .faq-item { margin-bottom:24px; }
+  .faq-item h3 { font-size:1.2rem; margin-bottom:8px; color:var(--teal); font-family:'Inter', sans-serif; font-weight:600; }
+  .faq-item p { color:var(--muted); }
+  
+  .author-bio { margin: 80px 0 60px; padding: 32px; background: rgba(24,24,27,0.4); border: 1px solid var(--line-soft); border-radius: var(--radius-lg); display: flex; align-items: center; gap: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .author-bio .avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), #00a896); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--ink); font-size: 1.5rem; flex-shrink:0; box-shadow: 0 4px 12px var(--teal-glow); }
+  .author-bio .info h4 { margin-bottom: 6px; font-size: 1.15rem; color:var(--text); }
+  .author-bio .info p { color: var(--muted); font-size: 0.95rem; margin: 0; line-height:1.5; }
+  
+  /* Sidebar */
+  .sidebar { position:sticky; top:120px; }
+  .sidebar-box { background:rgba(24,24,27,0.3); border:1px solid var(--line-soft); border-radius:var(--radius-md); padding:32px; margin-bottom:24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .sidebar-box h3 { font-size:1.15rem; margin-bottom:20px; border-bottom:1px solid var(--line-soft); padding-bottom:16px; font-family:'Inter', sans-serif; color:var(--text); }
+  .similar-item { display:block; text-decoration:none; color:var(--text); margin-bottom:16px; }
+  .similar-item:last-child { margin-bottom:0; }
+  .similar-item:hover .sim-title { color:var(--teal); }
+  .sim-tag { font-family:'IBM Plex Mono', monospace; font-size:0.65rem; color:var(--gold); text-transform:uppercase; display:block; margin-bottom:4px; }
+  .sim-title { font-size:0.95rem; font-weight:500; transition:color 0.15s; line-height:1.4; }
+{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ article.title }}",
+  "description": "{{ article.excerpt }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}"
+  },
+  "datePublished": "{{ article.date }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.brand }}"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ site.url }}"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "{{ article.title }}",
+    "item": "{{ site.url }}/{{ article.slug }}.html"
+  }]
+}
+</script>
+
+{% if article.faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in article.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+<div class="article-layout">
+  <article>
+    <header class="article-header">
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem; margin-bottom:16px; font-family:'Inter', sans-serif; color:var(--muted);">
+        <a href="/" style="text-decoration:none; color:var(--teal);">Home</a> 
+        <span style="margin:0 8px;">/</span> 
+        <span class="tag" style="margin-bottom:0;">{{ article.category }}</span> 
+        <span style="margin:0 8px;">/</span> 
+        <span style="color:var(--text);">{{ article.title }}</span>
+      </nav>
+      <h1>{{ article.title }}</h1>
+      <div class="meta">By {{ site.author }} &bull; {{ article.date }}</div>
+      
+      <div class="social-share">
+        <a href="https://twitter.com/intent/tweet?url={{ site.url }}/{{ article.slug }}.html&text={{ article.title }}" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Twitter">X</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}/{{ article.slug }}.html&title={{ article.title }}" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on LinkedIn">in</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/{{ article.slug }}.html" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Facebook">f</a>
+      </div>
+    </header>
+    
+    <div class="ad-slot" style="padding:0 0 40px 0;"><div class="box">AD SLOT — ABOVE ARTICLE (Responsive)</div></div>
+
+    {% if article.key_takeaways %}
+    <div class="key-takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        {% for tk in article.key_takeaways %}
+        <li>{{ tk }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="article-content">
+      {{ article.content_with_ads }}
+    </div>
+    
+    {% if article.faqs %}
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      {% for faq in article.faqs %}
+      <div class="faq-item">
+        <h3>{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div class="author-bio">
+      <div class="avatar">{{ site.author[0] }}</div>
+      <div class="info">
+        <h4>{{ site.author }}</h4>
+        <p>{{ site.author_bio }}</p>
+      </div>
+    </div>
+
+    <div class="ad-slot" style="padding:0;"><div class="box">AD SLOT — MULTIPLEX / END OF POST</div></div>
+  </article>
+
+  <aside>
+    <div class="sidebar">
+      <div class="sidebar-box">
+        <h3>Similar Items</h3>
+        <div class="similar-items-list">
+          {% for rel in related %}
+          <a href="{{ rel.slug }}.html" class="similar-item">
+            <span class="sim-tag">{{ rel.category }}</span>
+            <span class="sim-title">{{ rel.title }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="ad-slot" style="padding:0;"><div class="box" style="height:600px; width:300px;">AD SLOT — SKYSCRAPER</div></div>
+    </div>
+  </aside>
+</div>
+{% endblock %}

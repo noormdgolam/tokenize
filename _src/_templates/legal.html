@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ site.title }}{% endblock %}
+{% block description %}{{ page.title }} for {{ site.brand }}{% endblock %}
+{% block canonical %}{{ site.url }}/{{ page.slug }}.html{% endblock %}
+{% block canonical_alt %}{{ site.url }}/{{ page.slug }}.html{% endblock %}
+
+{% block extra_css %}
+  .legal-container { max-width: 800px; margin: 80px auto 60px; padding: 40px; min-height: 50vh; background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  @media (max-width:720px){ .legal-container { padding: 24px; margin: 40px auto; } }
+  .legal-container h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 40px; border-bottom: 1px solid var(--line-soft); padding-bottom: 24px; color:var(--text); }
+  .legal-content { font-size: 1.1rem; line-height: 1.7; color: var(--muted); }
+  .legal-content h2 { font-size: 1.6rem; margin: 40px 0 20px; color: var(--text); }
+  .legal-content p { margin-bottom: 24px; }
+  .legal-content a { color: var(--teal); text-decoration:none; }
+  .legal-content a:hover { text-decoration:underline; }
+{% endblock %}
+
+{% block content %}
+<div class="legal-container">
+  <h1>{{ page.title }}</h1>
+  <div class="legal-content">
+    {{ page.content }}
+  </div>
+</div>
+{% endblock %}

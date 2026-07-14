@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}HTML Sitemap | {{ site.title }}{% endblock %}
+{% block description %}Full directory of all guides, calculators, and legal pages on {{ site.brand }}.{% endblock %}
+{% block canonical %}{{ site.url }}/sitemap.html{% endblock %}
+{% block canonical_alt %}{{ site.url }}/sitemap.html{% endblock %}
+
+{% block extra_css %}
+  .sitemap-container { max-width: 900px; margin: 80px auto 60px; padding: 40px; min-height: 50vh; background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  @media (max-width:720px){ .sitemap-container { padding: 24px; margin: 40px auto; } }
+  .sitemap-container h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; border-bottom: 1px solid var(--line-soft); padding-bottom: 24px; color:var(--text); }
+  
+  .sitemap-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:40px; }
+  @media (max-width:720px){ .sitemap-grid { grid-template-columns:1fr; gap:32px; } }
+  
+  .sitemap-section h2 { font-size:1.4rem; color:var(--teal); margin-bottom:16px; font-family:'Inter', sans-serif; font-weight:600; }
+  .sitemap-section ul { list-style:none; }
+  .sitemap-section li { margin-bottom:12px; }
+  .sitemap-section a { color:var(--text); text-decoration:none; font-size:1rem; transition:color 0.2s; }
+  .sitemap-section a:hover { color:var(--teal); text-decoration:underline; }
+{% endblock %}
+
+{% block content %}
+<div class="sitemap-container">
+  <h1>Site Directory</h1>
+  <p style="color:var(--muted); font-size:1.1rem;">A complete map of all educational resources and guides available on {{ site.brand }}.</p>
+  
+  <div class="sitemap-grid">
+    <div class="sitemap-section">
+      <h2>Educational Guides</h2>
+      <ul>
+        {% for article in articles|sort(attribute='title') %}
+        <li><a href="/{{ article.slug }}.html">{{ article.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <div class="sitemap-section">
+      <h2>Core & Legal Pages</h2>
+      <ul>
+        <li><a href="/">Home (Calculators)</a></li>
+        <li><a href="/search.html">Search</a></li>
+        {% for page in legal_pages %}
+        <li><a href="/{{ page.slug }}.html">{{ page.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

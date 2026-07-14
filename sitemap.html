@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Sitemap | Tokenize | Real-World Asset Tokenization, Explained & Calculated</title>
+<meta name="description" content="Full directory of all guides, calculators, and legal pages on Tokenize.">
+
+<!-- SEO Meta Tags -->
+<link rel="canonical" href="https://tokenize.example.com/sitemap.html">
+<link rel="alternate" hreflang="en-us" href="https://tokenize.example.com/sitemap.html">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tokenize | Real-World Asset Tokenization, Explained & Calculated">
+<meta property="og:description" content="Understand tokenized stocks, treasuries, and real estate. Free calculators for settlement savings, RWA yield, and portfolio allocation — built for US investors.">
+<meta property="og:url" content="https://tokenize.example.com">
+<meta property="og:image" content="https://tokenize.example.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tokenize | Real-World Asset Tokenization, Explained & Calculated">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#09090b">
+
+<!-- Google AdSense Global -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Modern Midnight/Zinc Palette */
+    --ink: #09090b;
+    --surface: #18181b;
+    --surface-2: #27272a;
+    --line: #3f3f46;
+    --line-soft: rgba(255,255,255,0.08);
+    
+    --teal: #00D9C0;
+    --teal-glow: rgba(0, 217, 192, 0.2);
+    --gold: #C9A227;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 99px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.02em;
+    line-height: 1.1;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; transition: all 0.2s ease;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px; position:relative; z-index:10;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(9, 9, 11, 0.7);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1100px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:1.4rem; font-weight:600;
+    display:flex; align-items:center; gap:10px; text-decoration: none;
+    letter-spacing:-0.03em;
+  }
+  .logo-icon {
+    width:32px; height:32px; border-radius:10px; background:linear-gradient(135deg, var(--teal), #00a896);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 4px 12px var(--teal-glow);
+  }
+  
+  .navlinks{display:flex; gap:32px; font-size:0.95rem; color:var(--muted); align-items:center;}
+  .navlinks a{text-decoration:none; font-weight:500;}
+  .navlinks a:hover{color:var(--text);}
+  @media (max-width:720px){ .navlinks{display:none;} }
+
+  /* ---------- GLOBAL ORBS ---------- */
+  .bg-orb {
+    position:absolute; border-radius:50%; filter:blur(120px); z-index:0; opacity:0.15; pointer-events:none;
+  }
+  .bg-orb.top-left { top:-100px; left:-100px; width:400px; height:400px; background:var(--teal); }
+  .bg-orb.top-right { top:200px; right:-150px; width:500px; height:500px; background:var(--gold); }
+
+  /* ---------- AD SLOTS ---------- */
+  .ad-slot{
+    max-width:1100px; margin:0 auto; padding:32px 24px; display:flex; justify-content:center; position:relative; z-index:10;
+  }
+  .ad-slot .box{
+    border:1px dashed var(--line); border-radius:var(--radius-md); padding:18px;
+    text-align:center; color:var(--muted); font-size:0.78rem; width:100%; max-width:728px; min-height: 90px;
+    font-family:'IBM Plex Mono', monospace; letter-spacing:0.04em;
+    display: flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.01);
+  }
+
+  /* Shared section styles */
+  section{padding:80px 0; position:relative; z-index:10;}
+  .section-head{max-width:60ch; margin-bottom:48px;}
+  .section-head .eyebrow{margin-bottom:16px; font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); display:inline-block; padding:4px 12px; border-radius:var(--radius-pill); background:var(--teal-glow);}
+  .section-head h2{font-size:clamp(2rem, 4vw, 2.8rem);}
+  .section-head p{color:var(--muted); margin-top:16px; font-size:1.05rem; line-height:1.7;}
+  
+  /* Footer & Legal */
+  footer{border-top:1px solid var(--line-soft); padding:64px 0; margin-top:40px; background:var(--surface); position:relative; z-index:10;}
+  .footgrid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px;}
+  .footgrid .muted{color:var(--muted); font-size:0.9rem; max-width:40ch; margin-bottom:16px; line-height:1.6;}
+  .footlinks{display:flex; gap:24px; font-size:0.9rem; color:var(--muted); flex-wrap:wrap;}
+  .footlinks a:hover{color:var(--teal);}
+  .visitor-counter { display:inline-block; border:1px solid var(--line); border-radius:var(--radius-sm); padding:6px 12px; font-size:0.8rem; font-family:'IBM Plex Mono', monospace; background:var(--ink); color:var(--teal); margin-top:16px; }
+
+  /* Cookie Consent Banner */
+  #cookie-banner { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); width:calc(100% - 48px); max-width:900px; background:rgba(24,24,27,0.9); backdrop-filter:blur(16px); border:1px solid var(--line-soft); padding:20px 24px; border-radius:var(--radius-md); display:flex; justify-content:space-between; align-items:center; z-index:9999; font-size:0.95rem; flex-wrap:wrap; gap:20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: opacity 0.4s ease, transform 0.4s ease; }
+  #cookie-banner.hidden { opacity:0; transform:translate(-50%, 20px); pointer-events:none; }
+  .cookie-btn { background:linear-gradient(135deg, var(--teal), #00a896); color:var(--ink); border:none; padding:10px 24px; border-radius:var(--radius-pill); font-weight:600; cursor:pointer; font-family:'Inter', sans-serif; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px var(--teal-glow); }
+  .cookie-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--teal-glow); }
+
+  /* Inputs and Buttons */
+  .btn-primary { background:linear-gradient(135deg, var(--teal), #00a896); color:var(--ink); border:none; padding:12px 28px; border-radius:var(--radius-pill); font-weight:600; cursor:pointer; font-family:'Inter', sans-serif; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px var(--teal-glow); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--teal-glow); }
+  
+  
+  .sitemap-container { max-width: 900px; margin: 80px auto 60px; padding: 40px; min-height: 50vh; background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  @media (max-width:720px){ .sitemap-container { padding: 24px; margin: 40px auto; } }
+  .sitemap-container h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; border-bottom: 1px solid var(--line-soft); padding-bottom: 24px; color:var(--text); }
+  
+  .sitemap-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:40px; }
+  @media (max-width:720px){ .sitemap-grid { grid-template-columns:1fr; gap:32px; } }
+  
+  .sitemap-section h2 { font-size:1.4rem; color:var(--teal); margin-bottom:16px; font-family:'Inter', sans-serif; font-weight:600; }
+  .sitemap-section ul { list-style:none; }
+  .sitemap-section li { margin-bottom:12px; }
+  .sitemap-section a { color:var(--text); text-decoration:none; font-size:1rem; transition:color 0.2s; }
+  .sitemap-section a:hover { color:var(--teal); text-decoration:underline; }
+
+</style>
+
+<!-- JSON-LD Organization & WebSite schemas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Tokenize",
+  "url": "https://tokenize.example.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tokenize",
+  "url": "https://tokenize.example.com",
+  "logo": "https://tokenize.example.com/logo.png"
+}
+</script>
+</head>
+<body>
+
+<div class="bg-orb top-left"></div>
+<div class="bg-orb top-right"></div>
+
+<header>
+  <nav>
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      Tokenize
+    </a>
+    <div class="navlinks">
+      
+      <a href="/">Home</a>
+      
+      <a href="/search.html">Search</a>
+      
+      <a href="/native-vs-synthetic-tokenized-stock.html">Equities</a>
+      
+      <a href="/inside-a-tokenized-treasury-fund.html">Treasuries</a>
+      
+      <a href="/about-us.html">About Us</a>
+      
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<div class="sitemap-container">
+  <h1>Site Directory</h1>
+  <p style="color:var(--muted); font-size:1.1rem;">A complete map of all educational resources and guides available on Tokenize.</p>
+  
+  <div class="sitemap-grid">
+    <div class="sitemap-section">
+      <h2>Educational Guides</h2>
+      <ul>
+        
+        <li><a href="/defi-composability-with-tokenized-assets.html">DeFi Composability: Using Tokenized Assets as Collateral</a></li>
+        
+        <li><a href="/how-to-buy-tokenized-us-treasuries.html">How to Buy Tokenized US Treasuries: A Retail Guide</a></li>
+        
+        <li><a href="/inside-a-tokenized-treasury-fund.html">Inside a Tokenized Treasury Fund</a></li>
+        
+        <li><a href="/kyc-aml-in-tokenized-securities.html">KYC and AML in Tokenized Securities: The ERC-3643 Standard</a></li>
+        
+        <li><a href="/native-vs-synthetic-tokenized-stock.html">Native vs. Synthetic Tokenized Stock</a></li>
+        
+        <li><a href="/oracle-networks-in-rwa-tokenization.html">Oracle Networks in RWA Tokenization: The Off-Chain Bridge</a></li>
+        
+        <li><a href="/reg-a-plus-vs-reg-d-tokenized-offerings.html">Reg A+ vs Reg D: SEC Exemptions for Tokenized Offerings</a></li>
+        
+        <li><a href="/secondary-markets-for-tokenized-real-estate.html">Secondary Markets for Tokenized Real Estate: ATS Explained</a></li>
+        
+        <li><a href="/smart-contracts-in-dividend-distribution.html">Smart Contracts in Dividend Distribution: Technical Explainer</a></li>
+        
+        <li><a href="/impact-of-mica-on-rwa-tokenization.html">The Impact of MiCA on RWA Tokenization Globally</a></li>
+        
+        <li><a href="/regulatory-status-tokenized-assets-us.html">The Regulatory Status of Tokenized Assets in the US</a></li>
+        
+        <li><a href="/risks-of-synthetic-tokenized-stocks.html">The Risks of Synthetic Tokenized Stocks for US Investors</a></li>
+        
+        <li><a href="/role-of-custodians-in-rwa-tokenization.html">The Role of Custodians in RWA Tokenization</a></li>
+        
+        <li><a href="/role-of-stablecoins-in-rwa-settlement.html">The Role of Stablecoins in RWA Settlement</a></li>
+        
+        <li><a href="/tokenized-carbon-credits-market.html">The Tokenized Carbon Credits Market: Solving Double-Spending</a></li>
+        
+        <li><a href="/tokenized-precious-metals-basket.html">The Tokenized Precious Metals Basket: Diversified Hard Assets</a></li>
+        
+        <li><a href="/tokenized-agricultural-land.html">Tokenized Agricultural Land: On-Chain Farmland Yields</a></li>
+        
+        <li><a href="/tokenized-artificial-intelligence-models.html">Tokenized AI Models: Fractionalizing the Algorithm</a></li>
+        
+        <li><a href="/tokenized-aircraft-and-aviation-assets.html">Tokenized Aircraft: Fractionalizing Aviation Leasing</a></li>
+        
+        <li><a href="/tokenized-airports.html">Tokenized Airports: Fractionalizing Aviation Hubs</a></li>
+        
+        <li><a href="/tokenized-aquaculture.html">Tokenized Aquaculture: Sustainable Seafood Yields</a></li>
+        
+        <li><a href="/tokenized-asteroid-mining-rights.html">Tokenized Asteroid Mining: The Speculative Frontier</a></li>
+        
+        <li><a href="/tokenized-atm-portfolios.html">Tokenized ATM Portfolios: Fractionalizing Cash Machines</a></li>
+        
+        <li><a href="/tokenized-battery-storage.html">Tokenized Battery Storage: Profiting from Energy Arbitrage</a></li>
+        
+        <li><a href="/tokenized-billboard-advertising.html">Tokenized Billboard Advertising: Fractionalizing Ad Revenue</a></li>
+        
+        <li><a href="/tokenized-biomass-energy.html">Tokenized Biomass Energy: Yield from Sustainability</a></li>
+        
+        <li><a href="/tokenized-brain-computer-interfaces.html">Tokenized Brain-Computer Interfaces: The Neural Frontier</a></li>
+        
+        <li><a href="/tokenized-bridges-and-tunnels.html">Tokenized Bridges and Tunnels: Monopoly Infrastructure</a></li>
+        
+        <li><a href="/tokenized-car-washes.html">Tokenized Car Washes: The Subscription Economics</a></li>
+        
+        <li><a href="/tokenized-carbon-offset-verification.html">Tokenized Carbon Offset Verification: On-Chain Auditing</a></li>
+        
+        <li><a href="/tokenized-cell-towers.html">Tokenized Cell Towers: Yield from Telecommunications</a></li>
+        
+        <li><a href="/tokenized-clean-energy-projects.html">Tokenized Clean Energy Projects: Funding Solar on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-collectibles-vintage-cars.html">Tokenized Collectibles and Vintage Cars: Assessing ROI</a></li>
+        
+        <li><a href="/tokenized-commercial-real-estate-yields.html">Tokenized Commercial Real Estate Yields: Office vs Multi-Family</a></li>
+        
+        <li><a href="/tokenized-commodities-beyond-gold.html">Tokenized Commodities Beyond Gold: Industrial Metals and Oil</a></li>
+        
+        <li><a href="/tokenized-corporate-bonds.html">Tokenized Corporate Bonds: Faster Settlement, Lower Costs</a></li>
+        
+        <li><a href="/tokenized-data-cables.html">Tokenized Data Cables: Fractionalizing the Internet</a></li>
+        
+        <li><a href="/tokenized-data-centers.html">Tokenized Data Centers: Real Estate for the AI Boom</a></li>
+        
+        <li><a href="/tokenized-debt-instruments.html">Tokenized Debt Instruments: Democratizing Corporate Borrowing</a></li>
+        
+        <li><a href="/tokenized-deep-sea-mining.html">Tokenized Deep Sea Mining: Extracting Ocean Floor Wealth</a></li>
+        
+        <li><a href="/tokenized-desalination-plants.html">Tokenized Desalination Plants: Investing in Water Security</a></li>
+        
+        <li><a href="/tokenized-dyson-swarm-construction.html">Tokenized Dyson Swarms: Harvesting the Sun</a></li>
+        
+        <li><a href="/tokenized-ev-charging-stations.html">Tokenized EV Charging Stations: Infrastructure Yields</a></li>
+        
+        <li><a href="/tokenized-film-production-financing.html">Tokenized Film Production Financing: Indie Cinema on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-fine-art-investment.html">Tokenized Fine Art Investment: Fractionalizing Masterpieces</a></li>
+        
+        <li><a href="/tokenized-franchise-ownership.html">Tokenized Franchise Ownership: Fractionalizing Fast Food</a></li>
+        
+        <li><a href="/tokenized-fusion-energy-research.html">Tokenized Fusion Energy: Funding the Holy Grail</a></li>
+        
+        <li><a href="/tokenized-geothermal-energy.html">Tokenized Geothermal Energy: Base-Load Yields</a></li>
+        
+        <li><a href="/tokenized-gold-vs-physical-gold.html">Tokenized Gold vs Physical Gold: A Comparative Analysis</a></li>
+        
+        <li><a href="/tokenized-graphene-production.html">Tokenized Graphene Production: Funding the Wonder Material</a></li>
+        
+        <li><a href="/tokenized-healthcare-facilities.html">Tokenized Healthcare Facilities: Defensive Real Estate</a></li>
+        
+        <li><a href="/tokenized-hotel-and-resort-ownership.html">Tokenized Hotel and Resort Ownership: Hospitality Yields</a></li>
+        
+        <li><a href="/tokenized-hydroelectric-power.html">Tokenized Hydroelectric Power: Generational Cash Flow</a></li>
+        
+        <li><a href="/tokenized-industrial-warehouses.html">Tokenized Industrial Warehouses: Logistics on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-infrastructure-projects.html">Tokenized Infrastructure Projects: Crowdfunding Public Works</a></li>
+        
+        <li><a href="/tokenized-intellectual-property-rights.html">Tokenized Intellectual Property Rights: Fractionalizing IP</a></li>
+        
+        <li><a href="/tokenized-lab-grown-meat-production.html">Tokenized Lab-Grown Meat: Investing in the Future of Food</a></li>
+        
+        <li><a href="/tokenized-laundromats.html">Tokenized Laundromats: Passive Income on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-litigation-finance.html">Tokenized Litigation Finance: Funding Corporate Lawsuits</a></li>
+        
+        <li><a href="/tokenized-longevity-therapeutics.html">Tokenized Longevity: Investing in Life Extension</a></li>
+        
+        <li><a href="/tokenized-luxury-watches.html">Tokenized Luxury Watches: Rolex on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-marina-slips.html">Tokenized Marina Slips: Fractionalizing Waterfront Real Estate</a></li>
+        
+        <li><a href="/tokenized-mars-colony-funding.html">Tokenized Mars Colony Funding: The Interplanetary Bond</a></li>
+        
+        <li><a href="/tokenized-metamaterials.html">Tokenized Metamaterials: Engineering the Impossible</a></li>
+        
+        <li><a href="/tokenized-mineral-rights.html">Tokenized Mineral Rights: Subsurface Royalties on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-mobile-home-parks.html">Tokenized Mobile Home Parks: The Ultimate Cash Cow</a></li>
+        
+        <li><a href="/tokenized-moon-base-infrastructure.html">Tokenized Moon Base Infrastructure: Lunar Real Estate</a></li>
+        
+        <li><a href="/tokenized-music-royalties.html">Tokenized Music Royalties: Investing in Song Catalogs</a></li>
+        
+        <li><a href="/tokenized-nanotechnology.html">Tokenized Nanotechnology: Fractionalizing the Micro-World</a></li>
+        
+        <li><a href="/tokenized-parking-lots.html">Tokenized Parking Lots: Low-Maintenance Urban Yields</a></li>
+        
+        <li><a href="/tokenized-royalties-in-pharmaceuticals.html">Tokenized Pharmaceutical Royalties: Fractionalizing Drug Patents</a></li>
+        
+        <li><a href="/tokenized-precision-agriculture.html">Tokenized Precision Agriculture: Robotics in Farming</a></li>
+        
+        <li><a href="/tokenized-quantum-computing-time.html">Tokenized Quantum Computing: Access as an Asset</a></li>
+        
+        <li><a href="/tokenized-rail-infrastructure.html">Tokenized Rail Infrastructure: Fractionalizing the Tracks</a></li>
+        
+        <li><a href="/tokenized-reits.html">Tokenized REITs vs Traditional REITs: A Structural Comparison</a></li>
+        
+        <li><a href="/tokenized-satellites.html">Tokenized Satellites: Investing in the Space Economy</a></li>
+        
+        <li><a href="/tokenized-seaports.html">Tokenized Seaports: Investing in Maritime Hubs</a></li>
+        
+        <li><a href="/tokenized-shipping-fleets.html">Tokenized Shipping Fleets: Investing in Global Trade</a></li>
+        
+        <li><a href="/tokenized-single-family-rentals.html">Tokenized Single-Family Rentals: Daily Yield on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-solar-farm-royalties.html">Tokenized Solar Farm Royalties: Earning from the Sun</a></li>
+        
+        <li><a href="/tokenized-sovereign-debt-beyond-us.html">Tokenized Sovereign Debt: Developing Nations on the Blockchain</a></li>
+        
+        <li><a href="/tokenized-space-elevators.html">Tokenized Space Elevators: The Ultimate Infrastructure</a></li>
+        
+        <li><a href="/tokenized-space-stations.html">Tokenized Space Stations: Fractionalizing Orbital Habitats</a></li>
+        
+        <li><a href="/tokenized-sports-contracts.html">Tokenized Sports Contracts: Investing in Athlete Earnings</a></li>
+        
+        <li><a href="/tokenized-storage-units.html">Tokenized Storage Units: High-Yield Fractional Real Estate</a></li>
+        
+        <li><a href="/tokenized-student-housing.html">Tokenized Student Housing: Yields and Seasonal Risks</a></li>
+        
+        <li><a href="/tokenized-student-loans.html">Tokenized Student Loans: Fractionalizing Income Share Agreements</a></li>
+        
+        <li><a href="/tokenized-room-temperature-superconductors.html">Tokenized Superconductors: The Ultimate Speculation</a></li>
+        
+        <li><a href="/tokenized-synthetic-biology.html">Tokenized Synthetic Biology: Fractionalizing DNA IP</a></li>
+        
+        <li><a href="/tokenized-terraforming-projects.html">Tokenized Terraforming: Planetary Engineering</a></li>
+        
+        <li><a href="/tokenized-timber-rights.html">Tokenized Timber Rights: Separating Land from Harvest</a></li>
+        
+        <li><a href="/tokenized-timberland-investment.html">Tokenized Timberland: Yield from Sustainable Forestry</a></li>
+        
+        <li><a href="/tokenized-toll-roads.html">Tokenized Toll Roads: Public-Private Infrastructure</a></li>
+        
+        <li><a href="/tokenized-vending-machine-routes.html">Tokenized Vending Machine Routes: Automated Retail Yields</a></li>
+        
+        <li><a href="/tokenized-venture-capital-funds.html">Tokenized Venture Capital Funds: Unlocking Secondary Markets</a></li>
+        
+        <li><a href="/tokenized-vertical-farming.html">Tokenized Vertical Farming: Urban Agriculture Yields</a></li>
+        
+        <li><a href="/tokenized-waste-management-facilities.html">Tokenized Waste Management: Profits in the Landfill</a></li>
+        
+        <li><a href="/tokenized-water-rights.html">Tokenized Water Rights: Investing in the Ultimate Resource</a></li>
+        
+        <li><a href="/tokenized-water-treatment-plants.html">Tokenized Water Treatment: Municipal Infrastructure Yields</a></li>
+        
+        <li><a href="/tokenized-wind-farm-royalties.html">Tokenized Wind Farm Royalties: Yield from the Sky</a></li>
+        
+        <li><a href="/tokenized-wine-and-spirits.html">Tokenized Wine and Spirits: Investing in Liquid Gold</a></li>
+        
+        <li><a href="/tokenizing-private-equity-funds.html">Tokenizing Private Equity Funds: Lowering the Barriers</a></li>
+        
+        <li><a href="/tokenized-mortgages-next-collateral.html">Why Tokenized Mortgages Are the Next Collateral Asset</a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="sitemap-section">
+      <h2>Core & Legal Pages</h2>
+      <ul>
+        <li><a href="/">Home (Calculators)</a></li>
+        <li><a href="/search.html">Search</a></li>
+        
+        <li><a href="/about-us.html">About Us</a></li>
+        
+        <li><a href="/contact.html">Contact</a></li>
+        
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        
+        <li><a href="/disclaimer.html">Financial Disclaimer</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap footgrid">
+    <div>
+      <div class="logo" style="margin-bottom:16px;">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        Tokenize
+      </div>
+      <p class="muted">Independent explainers and calculators on real-world asset tokenization. Educational content only — not investment, legal, or tax advice.</p>
+      <div class="visitor-counter">Total Visitors: <span id="fakeCounter">Loading...</span></div>
+    </div>
+    <div>
+      <div class="footlinks">
+        <a href="/sitemap.html" style="color:var(--teal); font-weight:500;">HTML Sitemap</a>
+        
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        
+        <a href="/terms-of-service.html">Terms of Service</a>
+        
+        <a href="/disclaimer.html">Disclaimer</a>
+        
+        <a href="/contact.html">Contact</a>
+        
+      </div>
+      <div style="margin-top:32px; background:var(--surface-2); padding:24px; border-radius:var(--radius-md); border:1px solid var(--line-soft);">
+        <p style="font-weight:500; margin-bottom:12px;">Subscribe to our Newsletter</p>
+        <form style="display:flex; gap:12px;" onsubmit="event.preventDefault(); alert('Newsletter subscribed!');">
+          <input type="email" placeholder="Your email" required style="flex:1; padding:12px 16px; border-radius:var(--radius-pill); border:1px solid var(--line); background:var(--ink); color:var(--text); font-family:'Inter', sans-serif;">
+          <button type="submit" class="btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="hidden">
+  <div>We use cookies and Google AdSense to personalize content and ads, provide social media features, and analyze our traffic. See our <a href="/privacy-policy.html" style="color:var(--teal); font-weight:500; text-decoration:none;">Privacy Policy</a>.</div>
+  <button class="cookie-btn" onclick="acceptCookies()">Accept All</button>
+</div>
+
+<script>
+  // Cookie banner logic
+  setTimeout(() => {
+    if(!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+  }, 1000);
+
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+
+  // Fake counter for demo purposes
+  document.getElementById('fakeCounter').innerText = Math.floor(Math.random() * 5000 + 10000).toLocaleString();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+
+</body>
+</html>
