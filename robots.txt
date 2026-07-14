@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tokenize.example.com/sitemap.xml
+Sitemap: https://tokenize.bongshai.com/sitemap.xml
